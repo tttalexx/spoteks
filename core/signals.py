@@ -7,4 +7,9 @@ from .models import User, BDUser
 @receiver(post_save, sender=User)
 def create_bd_user(sender, instance, created, **kwargs):
     if created:
-        BDUser.objects.create(user=instance, user_tel=instance.phone_number, user_email=instance.email)
+        BDUser.objects.create(
+            user=instance,
+            user_tel=instance.phone_number,
+            user_email=instance.email,
+            user_role="user"  # Можно настроить роль по умолчанию
+        )

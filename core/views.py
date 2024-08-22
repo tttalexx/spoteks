@@ -18,7 +18,7 @@ def register_view(request):
 
 def login_view(request):
     if request.method == 'POST':
-        form = CustomAuthenticationForm(request, data=request.POST)
+        form = CustomAuthenticationForm(data=request.POST)
         if form.is_valid():
             phone_number = form.cleaned_data.get('phone_number')
             password = form.cleaned_data.get('password')
