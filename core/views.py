@@ -1,5 +1,6 @@
 # core/views.py
 
+from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
@@ -33,3 +34,5 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+def home_view(request):
+    return render(request, 'core/home.html')
